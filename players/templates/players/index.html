@@ -2,20 +2,21 @@
 
 {% block content %}
 <ul class="list-articles">
-	{% for p in posts %}
+	{% for p in player %}
 			<li><div class="article-panel">
 	<p class="first">Коммьюнити: {{ p.comm }}</p>
 </div>
 
-{% if p.photo %}
+		{% if p.photo %}
 	<p><img class="img-article-left-thumb" src="{{ p.photo.url }}"></p>
-{% endif %}
+		{% endif %}
 
 			<h2>{{p.username}}</h2>
-	{% autoescape on %}
-	{{ p.comment }}
-	{% endautoescape %}
+		{% autoescape on %}
+		{{ p.comment }}
+		{% endautoescape %}
 			<div class="clear"></div>
+			<p class="link-read-post"><a href='{{ p.get_absolute_url }}'>Изучить игрока</a></p>
 			</li>
 	{% endfor %}
 </ul>
